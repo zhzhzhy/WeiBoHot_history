@@ -31,7 +31,7 @@ Title
 
 cd $1
 git push origin master
-if [ $? == 0 ]; then
+if [ $?==0 ]; then
 	echo "Finish push"
 else
 	echo "Error with this push!"
