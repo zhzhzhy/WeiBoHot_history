@@ -31,7 +31,7 @@ data = html_xpath.xpath('//*[@id="pl_top_realtimehot"]/table/tbody/tr/td[2]')
 num = -1
 
 # Define the store path of files
-file_name = time.strftime('%Y{y}%m{m}%d{d}%H}',time.localtime()).format(y='-', m='-', d='-')
+file_name = time.strftime('%Y{y}%m{m}%d{d}%H{minute}%M',time.localtime()).format(y='-', m='-', d=' ',minute=':')
 data_time = time.strftime('%Y{y}%m{m}%d{d}%H{h}',time.localtime()).format(y='年', m='月', d='日',h='时')
 year_path = time.strftime('%Y',time.localtime())
 month_path = time.strftime('%m',time.localtime())
@@ -44,9 +44,10 @@ if not os.path.exists(all_path):
 # The destination of files
 path = all_path + '/' + file_name +'.md'
 
-with open(path,'a') as f
-    f.write('{}'.format(data_time+'数据'))
-    f.write("Status: ",r.status_code,"\n\n")
+# Header of the file
+with open(path,'a') as f:
+    f.write('{}\n'.format(data_time+'数据'))
+    f.write('{}{}{}'.format("Status: ",r.status_code,"\n\n"))
 f.close()
 
 for tr in (data):
@@ -55,7 +56,6 @@ for tr in (data):
     length = len(str(num)+title[0])+1       #Total length of row char number
     zh_count = str_count(title[0])          #Number of chinese char(width of two English words)
     indent = 40-(length-zh_count)-2*zh_count   #Indent of blank space
-#   print(zh_count)
     num += 1
     # Filter the 0 result
     if num == 0:
@@ -63,6 +63,7 @@ for tr in (data):
     else:
         if indent <= 0:
             indent = 1
-        with open(path,'a') as f
-            f.write('{}.{}'.format(num,title[0]),'{}'.format(' '*indent+'微博热度:'+hot_score[0]))
+        with open(path,'a') as f:
+            f.write('{}.{}'.format(num,title[0]))
+            f.write('{}\n'.format(' '*indent+'微博热度:'+hot_score[0]))
         f.close()
