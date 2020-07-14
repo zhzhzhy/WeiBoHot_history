@@ -1,4 +1,5 @@
 #!/bin/bash
+
 <<Title
 MIT License
 
@@ -23,17 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
   Author: Geek_cat (https://github.com/zhzhzhy)
-  Usage: This is a Linux Server script for auto-git-commit
-  Set this script running with Crontab!(For example: * * * * * ~/Auto-git.sh {YOU GIT DIRECTORY})
-  Example: ~/Auto-git.sh {YOU GIT DIRECTORY}
+  Usage: This is a Linux Server script for auto-git-push
+  Set this script running with Crontab!(For example: * * * * * ~/Auto-push.sh {YOU GIT DIRECTORY})
+  Example: ~/Auto-push.sh {YOU GIT DIRECTORY}
 Title
 
 cd $1
-note="$(date +%Y-%m-%d) $(date +%H:%M)"
-git add -A
-git commit -m "$note"
+git push origin master
 if [ $? == 0 ]; then
-	echo "Finish commit"
-else 
-	echo "Error with this commit!"
+	echo "Finish push"
+else
+	echo "Error with this push!"
 fi
