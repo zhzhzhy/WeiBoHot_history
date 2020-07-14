@@ -32,4 +32,8 @@ cd $1
 note="$(date +%Y-%m-%d) $(date +%H:%M)"
 git add -A
 git commit -m "$note"
-echo "Finish commit"
+if [ $? == 0 ]; then
+	echo "Finish commit"
+else 
+	echo "Error with this commit!"
+fi
