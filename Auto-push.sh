@@ -31,6 +31,7 @@ Title
 
 cd $1
 echo "Begin pull before push"
+# Config your git with "git config --global core.mergeoptions --no-edit" option
 git pull origin master
 echo "Begin push"
 git push origin master
