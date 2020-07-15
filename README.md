@@ -10,6 +10,7 @@ Python Script 根据[weibo_Hot_Search项目](https://github.com/Writeup001/weibo
 ## 运行环境安装与配置
 ### Python脚本运行环境
 - 安装 Python 3.0 +
+
 Debian/Ubuntu用户使用apt安装
 ```
 apt install python3 python3-pip
