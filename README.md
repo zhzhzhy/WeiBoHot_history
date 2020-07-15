@@ -5,7 +5,7 @@
 后端运行于Linux服务器，每5分钟抓取一次微博热搜榜
 通过crontab定时执行脚本，半小时commit一次，每小时向Github push一次
 
-Python Script 根据(weibo_Hot_Search项目)[https://github.com/Writeup001/weibo_Hot_Search]修改，感谢Writeup大佬的项目支持
+Python Script 根据[weibo_Hot_Search项目](https://github.com/Writeup001/weibo_Hot_Search)修改，感谢Writeup大佬的项目支持
 
 ## 运行环境安装与配置
 ### Python脚本运行环境
