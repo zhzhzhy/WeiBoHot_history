@@ -66,6 +66,6 @@ for tr in (data):
 #        if indent <= 0:
 #            indent = 1
         with open(path,'a') as f:
-            f.write('{}.{}\n'.format(num,title[0]))
+            f.write('{}.{}\n\n'.format(num,title[0]))
             f.write('{}\n\n'.format('微博热度:'+hot_score[0]))
         f.close()

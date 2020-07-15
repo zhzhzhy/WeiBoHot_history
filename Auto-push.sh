@@ -30,6 +30,9 @@ SOFTWARE.
 Title
 
 cd $1
+echo "Begin pull before push"
+git pull origin master
+echo "Begin push"
 git push origin master
 if [ $?==0 ]; then
 	echo "Finish push"
